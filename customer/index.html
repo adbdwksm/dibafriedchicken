@@ -49,8 +49,13 @@
           </button>
         </div>
         <div class="mt-4 surface shadow-soft rounded-2xl p-4">
-          <p class="text-sm text-slate">Nomor meja</p>
-          <p class="text-sm font-semibold">Meja 04</p>
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-slate">Nomor meja</p>
+              <p class="text-sm font-semibold">Meja 04</p>
+            </div>
+            <span id="sessionBadge" class="badge bg-ink/10 text-ink">Session</span>
+          </div>
           <div class="mt-3 flex gap-2">
             <div class="relative w-full">
               <span class="pointer-events-none absolute left-4 top-2.5 text-slate">
@@ -165,5 +170,13 @@
 
     <script src="../assets/menu-data.js"></script>
     <script src="../assets/customer.js"></script>
+    <script>
+      const sessionBadge = document.getElementById("sessionBadge");
+      const params = new URLSearchParams(window.location.search);
+      const sessionCode = params.get("session");
+      if (sessionCode && sessionBadge) {
+        sessionBadge.textContent = sessionCode;
+      }
+    </script>
   </body>
 </html>

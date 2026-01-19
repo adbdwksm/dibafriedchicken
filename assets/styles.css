@@ -1,0 +1,171 @@
+﻿:root {
+  --ink: #1c1a16;
+  --tomato: #e1523a;
+  --saffron: #f3b247;
+  --mint: #3fb389;
+  --cream: #f8f1e6;
+  --sky: #e9f0f4;
+  --slate: #3f3d3b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at 10% 10%, rgba(243, 178, 71, 0.25), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(63, 179, 137, 0.2), transparent 45%),
+    linear-gradient(160deg, #f8f1e6 0%, #e9f0f4 60%, #f8f1e6 100%);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page-wrap {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.page-wrap::before,
+.page-wrap::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(0px);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.page-wrap::before {
+  background: #e1523a;
+  top: -60px;
+  right: -80px;
+}
+
+.page-wrap::after {
+  background: #3fb389;
+  bottom: -80px;
+  left: -70px;
+}
+
+.surface {
+  background: rgba(248, 241, 230, 0.9);
+  border: 1px solid rgba(28, 26, 22, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.shadow-soft {
+  box-shadow: 0 18px 40px rgba(28, 26, 22, 0.12);
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 6px 14px;
+  border: 1px solid rgba(28, 26, 22, 0.15);
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff8ef;
+  white-space: nowrap;
+}
+
+.cart-panel {
+  transform: translateY(120%);
+  transition: transform 0.25s ease;
+}
+
+.cart-panel.open {
+  transform: translateY(0%);
+}
+
+.slide-up {
+  animation: slideUp 0.45s ease both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(248, 241, 230, 0.18);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background-color: rgba(248, 241, 230, 0.3);
+  color: #f8f1e6;
+}
+
+.zoomable {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.zoomable.zoomed {
+  cursor: zoom-out;
+  transform: scale(1.5);
+}
+
+.sold-out {
+  opacity: 0.7;
+}
+
+.sold-out button {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.menu-section {
+  scroll-margin-top: 96px;
+}

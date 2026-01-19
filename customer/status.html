@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Status Pesanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#1c1a16",
+              tomato: "#e1523a",
+              saffron: "#f3b247",
+              mint: "#3fb389",
+              cream: "#f8f1e6",
+              sky: "#e9f0f4",
+              slate: "#3f3d3b"
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Space Grotesk", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="font-body bg-cream text-ink">
+    <div class="page-wrap px-5 pb-16 pt-6">
+      <header class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate">Customer</p>
+        <h1 class="mt-2 text-2xl font-bold">Status Pesanan</h1>
+        <p class="mt-2 text-sm text-slate">Update otomatis setiap beberapa detik.</p>
+      </header>
+
+      <section class="relative z-10 mt-6 grid gap-4" id="statusList">
+        <article class="surface shadow-soft rounded-2xl p-4" data-status="Menunggu">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">#FO-2501</p>
+            <span class="badge bg-saffron/30 text-ink">Menunggu</span>
+          </div>
+          <p class="mt-2 text-sm">Chili Ramen x1</p>
+        </article>
+
+        <article class="surface shadow-soft rounded-2xl p-4" data-status="Diproses">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">#FO-2502</p>
+            <span class="badge bg-mint/30 text-ink">Diproses</span>
+          </div>
+          <p class="mt-2 text-sm">Citrus Teriyaki x1</p>
+        </article>
+
+        <article class="surface shadow-soft rounded-2xl p-4" data-status="Siap">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">#FO-2503</p>
+            <span class="badge bg-tomato/20 text-ink">Siap</span>
+          </div>
+          <p class="mt-2 text-sm">Mint Lime Soda x1</p>
+        </article>
+      </section>
+
+      <section class="relative z-10 mt-6">
+        <div class="surface shadow-soft rounded-2xl p-5">
+          <p class="text-sm text-slate">Sesi sudah selesai?</p>
+          <a href="./session-end.html" class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cream">
+            Lihat info sesi
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const statusCycle = ["Menunggu", "Diproses", "Siap"];
+      const badgeClasses = {
+        Menunggu: "badge bg-saffron/30 text-ink",
+        Diproses: "badge bg-mint/30 text-ink",
+        Siap: "badge bg-tomato/20 text-ink"
+      };
+
+      setInterval(() => {
+        document.querySelectorAll("#statusList article").forEach((card) => {
+          const current = card.dataset.status;
+          const index = statusCycle.indexOf(current);
+          const next = statusCycle[(index + 1) % statusCycle.length];
+          card.dataset.status = next;
+          const badge = card.querySelector(".badge");
+          if (badge) {
+            badge.className = badgeClasses[next];
+            badge.textContent = next;
+          }
+        });
+      }, 4000);
+    </script>
+
+    <nav class="fixed bottom-4 left-4 right-4 z-20 rounded-2xl bg-ink px-3 py-3 text-cream shadow-soft">
+      <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em]">
+        <a href="./index.html" class="nav-link">
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <path d="M4 12l8-7 8 7v7a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-7z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Home
+        </a>
+        <a href="./status.html" class="nav-link active">
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <path d="M5 5h14v14H5z" stroke="currentColor" stroke-width="1.4" />
+            <path d="M8 9h8M8 13h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+          </svg>
+          Orders
+        </a>
+        <a href="./entry.html" class="nav-link">
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" stroke="currentColor" stroke-width="1.4" />
+            <path d="M6 20a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+          </svg>
+          Profile
+        </a>
+      </div>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#1c1a16",
+              tomato: "#e1523a",
+              saffron: "#f3b247",
+              mint: "#3fb389",
+              cream: "#f8f1e6",
+              sky: "#e9f0f4",
+              slate: "#3f3d3b"
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Space Grotesk", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="font-body bg-cream text-ink">
+    <div class="page-wrap px-5 pb-24 pt-6">
+      <header class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate">Admin Dashboard</p>
+        <h1 class="mt-2 text-2xl font-bold">Pusat Operasional</h1>
+        <p class="mt-2 text-sm text-slate">Pantau sesi aktif dan alur order.</p>
+      </header>
+
+      <section class="relative z-10 mt-6 grid gap-4">
+        <div class="surface shadow-soft rounded-2xl p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-slate">Session</p>
+              <p class="text-2xl font-semibold">2 Aktif</p>
+            </div>
+            <a href="./session-create.html" class="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cream">
+              <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              Buat Session
+            </a>
+          </div>
+        </div>
+
+        <div class="surface shadow-soft rounded-2xl p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold">Meja 04</p>
+              <p class="text-xs text-slate">Mulai 11:15 - Dine in</p>
+            </div>
+            <span class="badge bg-mint/30 text-ink">Aktif</span>
+          </div>
+          <div class="mt-3 space-y-2">
+            <div class="flex items-center justify-between rounded-xl bg-white/90 px-3 py-2">
+              <p class="text-sm">#FO-2501 - Chili Ramen</p>
+              <span class="badge bg-saffron/30 text-ink">Menunggu</span>
+            </div>
+            <div class="flex items-center justify-between rounded-xl bg-white/90 px-3 py-2">
+              <p class="text-sm">#FO-2502 - Brisket Bowl</p>
+              <span class="badge bg-mint/30 text-ink">Diproses</span>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center justify-between">
+            <a href="./session-qr.html" class="rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold">Ubah Status</a>
+            <a href="./session-qr.html" class="rounded-full bg-ink px-4 py-2 text-xs font-semibold text-cream">Tutup Session</a>
+          </div>
+        </div>
+
+        <div class="surface shadow-soft rounded-2xl p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold">Takeaway - 2 pax</p>
+              <p class="text-xs text-slate">Mulai 11:32 - Pickup</p>
+            </div>
+            <span class="badge bg-saffron/30 text-ink">Prioritas</span>
+          </div>
+          <div class="mt-3 space-y-2">
+            <div class="flex items-center justify-between rounded-xl bg-white/90 px-3 py-2">
+              <p class="text-sm">#FO-2503 - Citrus Teriyaki</p>
+              <span class="badge bg-mint/30 text-ink">Diproses</span>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center justify-between">
+            <a href="./session-qr.html" class="rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold">Ubah Status</a>
+            <a href="./session-qr.html" class="rounded-full bg-ink px-4 py-2 text-xs font-semibold text-cream">Tutup Session</a>
+          </div>
+        </div>
+      </section>
+
+      <nav class="fixed bottom-4 left-4 right-4 z-20 rounded-2xl bg-ink px-3 py-3 text-cream shadow-soft">
+        <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em]">
+          <a href="./dashboard.html" class="nav-link active flex-1 justify-center">
+            <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12l8-7 8 7v7a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-7z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Dashboard
+          </a>
+          <a href="./session-create.html" class="nav-link flex-1 justify-center">
+            <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.4" />
+              <path d="M12 4v6M9 7h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            Session
+          </a>
+          <a href="./menu.html" class="nav-link flex-1 justify-center">
+            <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            Menu
+          </a>
+          <a href="./login.html" class="nav-link flex-1 justify-center">
+            <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" stroke="currentColor" stroke-width="1.4" />
+              <path d="M6 20a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            Profile
+          </a>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
